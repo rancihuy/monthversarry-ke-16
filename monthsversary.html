@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Happy Monthsversary ke 16 sayanggku nadia hairani</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500&display=swap');
+
+  :root{
+    --blush: #ffe7ec;
+    --blush2: #ffd3dc;
+    --rose: #e8879e;
+    --rose-deep: #c85c78;
+    --cream: #fff9f6;
+    --ink: #6b3548;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{
+    width:100%; height:100%;
+    background: radial-gradient(circle at 30% 20%, var(--blush) 0%, var(--blush2) 55%, #f8c6d2 100%);
+    font-family:'Poppins', sans-serif;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .stage{
+    width:100%; height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+
+  .float-heart{
+    position:absolute;
+    bottom:-10%;
+    color: var(--rose);
+    opacity:0.5;
+    animation: rise linear infinite;
+    user-select:none;
+    pointer-events:none;
+  }
+  @keyframes rise{
+    0%{ transform: translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:0.55; }
+    90%{ opacity:0.45; }
+    100%{ transform: translateY(-110vh) rotate(20deg); opacity:0; }
+  }
+
+  /* CARD (envelope look, simple 2D) */
+  .card-wrap{
+    position:relative;
+    width:300px;
+    cursor:pointer;
+    z-index:5;
+  }
+
+  .envelope{
+    position:relative;
+    width:300px; height:190px;
+    background: linear-gradient(135deg,#ffffff,#fff1f4);
+    border-radius:12px;
+    box-shadow: 0 18px 40px rgba(200,92,120,0.35);
+    display:flex; align-items:center; justify-content:center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .envelope::before{
+    content:"";
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    clip-path: polygon(0 0, 100% 0, 50% 60%, 0 15%);
+    opacity:0.95;
+    border-radius:12px 12px 0 0;
+  }
+
+  .seal{
+    width:56px; height:56px;
+    background: radial-gradient(circle at 35% 30%, #f6a5bb, var(--rose-deep));
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 6px 14px rgba(200,92,120,0.5);
+    font-size:22px;
+    color:#fff5f7;
+    z-index:2;
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform: scale(1); }
+    50%{ transform: scale(1.08); }
+  }
+
+  .hint{
+    position:absolute; bottom:-34px; left:0; right:0; text-align:center;
+    font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+    color: var(--rose-deep); opacity:0.75;
+    animation: fade 1.8s ease-in-out infinite;
+  }
+  @keyframes fade{ 0%,100%{opacity:0.4;} 50%{opacity:0.9;} }
+
+  .card-wrap.open .envelope{
+    opacity:0;
+    transform: scale(0.85);
+    pointer-events:none;
+  }
+  .card-wrap.open .hint{ display:none; }
+
+  /* LETTER */
+  .letter{
+    position:absolute;
+    top:50%; left:50%;
+    width:420px;
+    max-width:90vw;
+    max-height:82vh;
+    transform: translate(-50%,-50%) scale(0.85);
+    background: var(--cream);
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(150,60,90,0.3);
+    opacity:0;
+    pointer-events:none;
+    transition: opacity 0.55s ease 0.15s, transform 0.55s cubic-bezier(.2,.8,.3,1.15) 0.15s;
+    z-index:6;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .card-wrap.open .letter{
+    opacity:1;
+    transform: translate(-50%,-50%) scale(1);
+    pointer-events:auto;
+  }
+
+  .letter-inner{
+    padding: 36px 30px 30px;
+    text-align:center;
+    overflow-y:auto;
+    max-height:82vh;
+  }
+  .letter-inner::-webkit-scrollbar{ width:6px; }
+  .letter-inner::-webkit-scrollbar-thumb{ background: var(--rose); border-radius:4px; opacity:0.6; }
+
+  .photo-frame{
+    width:110px; height:110px;
+    margin: 0 auto 16px;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid #fff;
+    box-shadow: 0 8px 20px rgba(200,92,120,0.35);
+  }
+  .photo-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .eyebrow{
+    font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
+    color: var(--rose); margin-bottom:10px;
+  }
+
+  .title{
+    font-family:'Dancing Script', cursive;
+    font-size:42px;
+    color: var(--rose-deep);
+    line-height:1.1;
+    margin-bottom:8px;
+  }
+
+  .months-line{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:15.5px;
+    color: var(--ink);
+    margin-bottom:18px;
+  }
+  .months-line span{
+    border-bottom:1px dashed var(--rose);
+    padding:0 4px;
+    outline:none;
+    cursor:text;
+  }
+
+  .divider{
+    width:46px; height:2px; background: var(--rose);
+    margin: 0 auto 18px; border-radius:2px; opacity:0.6;
+  }
+
+  .message{
+    font-size:13.5px; line-height:1.85; color: var(--ink);
+    outline:none; cursor:text;
+    text-align:left;
+  }
+  .message p{ margin-bottom:14px; }
+  .message p:last-child{ margin-bottom:0; }
+
+  .signature{
+    margin-top:20px;
+    font-family:'Dancing Script', cursive;
+    font-size:21px;
+    color: var(--rose-deep);
+    outline:none; cursor:text;
+  }
+
+  .small-heart{
+    display:inline-block;
+    color: var(--rose);
+    margin-top:14px;
+    font-size:18px;
+    animation: beat 1.3s ease-in-out infinite;
+  }
+  @keyframes beat{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.25);} }
+
+  .close-btn{
+    position:absolute; top:10px; right:14px;
+    font-size:18px; color: var(--rose-deep);
+    opacity:0.55; cursor:pointer;
+    background:none; border:none;
+  }
+  .close-btn:hover{ opacity:1; }
+
+  .footer-note{
+    position:absolute; bottom:18px; left:0; right:0;
+    text-align:center; font-size:10.5px; letter-spacing:0.08em;
+    color: var(--rose-deep); opacity:0.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <div class="card-wrap" id="cardWrap">
+    <div class="envelope" id="envelopeClick">
+      <div class="seal">♥</div>
+    </div>
+    <div class="hint">Tap untuk buka</div>
+
+    <div class="letter">
+      <button class="close-btn" id="closeBtn">✕</button>
+      <div class="letter-inner">
+        <div class="photo-frame">
+          <img src="IMG_9298.jpg" alt="Foto ayangg">
+        </div>
+        <div class="eyebrow">Ucapan kecill darii ur bf sayangg</div>
+        <div class="title">Happy 16th<br>Monthversary</div>
+        <div class="months-line">sayanggkuu, cintaaakuu, cantiikuu</div>
+        <div class="divider"></div>
+        <div class="message" contenteditable="true">
+          <p>Nggak kerasa yaa sayang, we've been through so much together and somehow we're already here, 16 months together. 16 bulan bukan waktu yang sebentar, dan aku bersyukur banget sampai sekarang kita masih sama-sama, masih saling sayang, masih saling jagain, dan masih mau berusaha buat hubungan kita.</p>
+          <p>Selama 16 bulan ini kita udah ngelewatin banyak banget hal. Ada seneng, sedih, berantem, saling ngambek, saling manjain, ketawa bareng, sampai masa-masa dimana kita sama-sama capek. But through all of that, I'm still happy because I'm with you.</p>
+          <p>Aku tau aku masih sering salah, kadang kurang peka, kadang bikin kamu kesel, bikin kamu sedih, atau belum bisa jadi pasangan yang sempurna buat kamu. But I'm always trying to learn, to understand you better, and to become a better person for you and for us.</p>
+          <p>Makasii banyakk yaa cantiikuu udah bertahan sama aku selama 16 bulan ini. Makasii udah sabar sama sifat aku, udah nemenin aku, dengerin cerita aku, dan tetap jadi seseorang yang berarti banget buat aku.</p>
+          <p>Walaupun kita jauh, walaupun kita nggak bisa ketemu setiap saat, I never feel like you're far away from my heart. Jarak nggak pernah bikin rasa sayang aku ke kamu berkurang. Malah dari semua ini aku makin sadar kalau kamu really mean so much to me.</p>
+          <p>Aku nggak tau kedepannya kita bakal ngelewatin berapa banyak lagi monthversary, but I hope I'll get to celebrate every single one of them with you. Aku mau terus belajar, terus jagain kamu, terus sayang sama kamu, dan terus berusaha buat mempertahanin kita.</p>
+          <p><strong>Happy 16th monthversary sayanggkuu, cintaaakuu, cantiikuu.</strong></p>
+          <p>Thank you for being a part of my life and for making these 16 months so meaningful. I love you more than words can explain, and I'll always choose you, again and again.</p>
+        </div>
+        <div class="signature" contenteditable="true">i lovee moree sayanggkuu, cintaaakuu, cantiikuu ♥</div>
+        <div class="small-heart">♥</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-note">sepertii biasaaa sayanggg, tekann sajaaa</div>
+
+<script>
+  const cardWrap = document.getElementById('cardWrap');
+  const envelopeClick = document.getElementById('envelopeClick');
+  const closeBtn = document.getElementById('closeBtn');
+
+  envelopeClick.addEventListener('click', function(){
+    cardWrap.classList.add('open');
+  });
+  closeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    cardWrap.classList.remove('open');
+  });
+
+  const stage = document.getElementById('stage');
+  const symbols = ['♥','♡','✿'];
+  for(let i=0;i<16;i++){
+    const el = document.createElement('div');
+    el.className = 'float-heart';
+    el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left = Math.random()*100 + '%';
+    el.style.fontSize = (14 + Math.random()*20) + 'px';
+    el.style.animationDuration = (8 + Math.random()*10) + 's';
+    el.style.animationDelay = (Math.random()*10) + 's';
+    stage.appendChild(el);
+  }
+</script>
+
+</body>
+</html>
